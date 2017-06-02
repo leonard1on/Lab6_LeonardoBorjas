@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,6 +36,18 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jdCliente = new javax.swing.JDialog();
+        jLabel20 = new javax.swing.JLabel();
+        cbnombre = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jlProducto = new javax.swing.JList<>();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jlCompra = new javax.swing.JList<>();
+        jLabel23 = new javax.swing.JLabel();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jdUsuario = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -91,20 +104,114 @@ public class Main extends javax.swing.JFrame {
         cbMod = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        Factura = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tafactura = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jbCliente = new javax.swing.JButton();
         jbUsuario = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel20.setText("Menu de Clientes");
+
+        jLabel21.setText("Su nombre:");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Compras"));
+
+        jlProducto.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jlProducto);
+
+        jLabel22.setText("Productos Disponibles");
+
+        jlCompra.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jlCompra);
+
+        jLabel23.setText("Productos Comprados");
+
+        jButton14.setText("Comprar");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setText("Facturar");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addGap(29, 29, 29))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton14)
+                    .addComponent(jButton15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jdClienteLayout = new javax.swing.GroupLayout(jdCliente.getContentPane());
         jdCliente.getContentPane().setLayout(jdClienteLayout);
         jdClienteLayout.setHorizontalGroup(
             jdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jdClienteLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel20)
+                        .addGroup(jdClienteLayout.createSequentialGroup()
+                            .addComponent(jLabel21)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jdClienteLayout.setVerticalGroup(
             jdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jdClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jdClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -138,6 +245,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton9.setText("Cargar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -577,12 +689,52 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        tafactura.setColumns(20);
+        tafactura.setRows(5);
+        jScrollPane5.setViewportView(tafactura);
+
+        jLabel24.setText("Factura");
+
+        javax.swing.GroupLayout FacturaLayout = new javax.swing.GroupLayout(Factura.getContentPane());
+        Factura.getContentPane().setLayout(FacturaLayout);
+        FacturaLayout.setHorizontalGroup(
+            FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FacturaLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addGroup(FacturaLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        FacturaLayout.setVerticalGroup(
+            FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FacturaLayout.createSequentialGroup()
+                .addGap(0, 20, Short.MAX_VALUE)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabel1.setText("Bits and Bytes");
 
         jbCliente.setText("Cliente");
+        jbCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbClienteActionPerformed(evt);
+            }
+        });
 
         jbUsuario.setText("Usuario");
         jbUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -640,13 +792,13 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
+
         cbElimC.setModel(new DefaultComboBoxModel());
-        DefaultComboBoxModel e =(DefaultComboBoxModel)cbElimC.getModel();
+        DefaultComboBoxModel e = (DefaultComboBoxModel) cbElimC.getModel();
         for (Cliente c : clientes) {
             e.addElement(c);
         }
-        
+        cbElimC.setModel(e);
         jdEliminarC.setModal(true);
         jdEliminarC.pack();
         jdEliminarC.setLocationRelativeTo(this);
@@ -663,7 +815,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        
+
         cbMod.setModel(new DefaultComboBoxModel());
 
         DefaultComboBoxModel e = (DefaultComboBoxModel) cbMod.getModel();
@@ -671,7 +823,7 @@ public class Main extends javax.swing.JFrame {
         for (Producto p : ad.getProductos()) {
             e.addElement(p);
         }
-        
+
         jdMod.setModal(true);
         jdMod.pack();
         jdMod.setLocationRelativeTo(this);
@@ -688,6 +840,7 @@ public class Main extends javax.swing.JFrame {
                     Double.parseDouble(tfPrecio.getText()), Double.parseDouble(tfDescuento.getText()));
             ad.addProductos(p);
 
+            tfNombreP.setText("");
             tfPrecio.setText("");
             tfCategoria.setText("");
             tfPrecio.setText("");
@@ -724,39 +877,39 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        Producto p=(Producto)cbElimP.getSelectedItem();
+        Producto p = (Producto) cbElimP.getSelectedItem();
         ad.getProductos().remove(p);
-        
+
         JOptionPane.showMessageDialog(this, "Producto Eliminado Exitosamente");
         jdEliminarP.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void cbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbModActionPerformed
         // TODO add your handling code here:
-        Producto p=(Producto)cbMod.getSelectedItem();
-        
+        Producto p = (Producto) cbMod.getSelectedItem();
+
         tfNombreP1.setText(p.getNombre());
         tfCategoria1.setText(p.getCategoria());
         tfPrecio1.setText(Double.toString(p.getPrecio()));
         tfDescuento1.setText(Double.toString(p.getDescuento()));
-        
+
     }//GEN-LAST:event_cbModActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        Producto p=(Producto)cbMod.getSelectedItem();
-        
+        Producto p = (Producto) cbMod.getSelectedItem();
+
         p.setNombre(tfNombreP1.getText());
         p.setCategoria(tfCategoria1.getText());
         p.setPrecio(Double.parseDouble(tfPrecio1.getText()));
         p.setDescuento(Double.parseDouble(tfDescuento1.getText()));
-        
+
         jdMod.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        clientes.add(new Cliente(tfNombreC.getText(),(Integer)jsEdadC.getValue()));
+        clientes.add(new Cliente(tfNombreC.getText(), (Integer) jsEdadC.getValue()));
         tfNombreC.setText("");
         jsEdadC.setValue(20);
         jdCrearC.setVisible(false);
@@ -764,12 +917,84 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Cliente c=(Cliente)cbElimC.getSelectedItem();
+        Cliente c = (Cliente) cbElimC.getSelectedItem();
         clientes.remove(c);
-        
+
         JOptionPane.showMessageDialog(this, "Cliente Eliminado Exitosamente");
         jdEliminarC.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClienteActionPerformed
+        // TODO add your handling code here:
+        cbnombre.setModel(new DefaultComboBoxModel());
+        DefaultComboBoxModel e = (DefaultComboBoxModel) cbnombre.getModel();
+        for (Cliente c : clientes) {
+            e.addElement(c);
+        }
+        cbnombre.setModel(e);
+
+        ad.cargarArchivo();
+        jlProducto.setModel(new DefaultListModel());
+        jlCompra.setModel(new DefaultListModel());
+        DefaultListModel modelo = (DefaultListModel) jlProducto.getModel();
+        for (Producto p : ad.getProductos()) {
+            modelo.addElement(p);
+        }
+        jlProducto.setModel(modelo);
+
+        cbElimP.setModel(e);
+        jdCliente.setModal(true);
+        jdCliente.pack();
+        jdCliente.setLocationRelativeTo(this);
+        jdCliente.setVisible(true);
+    }//GEN-LAST:event_jbClienteActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+
+        if (jlProducto.getSelectedIndex() >= 0) {
+            DefaultListModel lista = (DefaultListModel) jlProducto.getModel();
+            Producto p = (Producto) lista.get(jlProducto.getSelectedIndex());
+
+            DefaultListModel modelo = (DefaultListModel) jlCompra.getModel();
+            modelo.addElement(p);
+
+            jlCompra.setModel(modelo);
+
+            lista.remove(jlProducto.getSelectedIndex());
+            ad.productos.remove(p);
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        ad.cargarArchivo();
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        if (cbnombre.getSelectedItem().equals("")) {
+
+        } else {
+            Cliente c = (Cliente) cbnombre.getSelectedItem();
+            String linea = (c.getNombre() + "\n" + c.getEdad());
+            String com = "";
+            for (int i = 0; i < jlCompra.getComponentCount(); i++) {
+                DefaultListModel modelo = (DefaultListModel) jlCompra.getModel();
+                Producto p = (Producto) modelo.get(i);
+                double total = p.getPrecio() - (p.getPrecio() * p.getDescuento());
+                ganancia += total;
+                com = com + "\n" + p.getNombre() + "--------" + (p.getPrecio() - (p.getPrecio() * p.getDescuento()));
+            }
+            tafactura.setText(linea + com);
+
+            Factura.setModal(true);
+            Factura.pack();
+            Factura.setLocationRelativeTo(this);
+            Factura.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -807,14 +1032,18 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Factura;
     private javax.swing.JComboBox<String> cbElimC;
     private javax.swing.JComboBox<String> cbElimP;
     private javax.swing.JComboBox<String> cbMod;
+    private javax.swing.JComboBox<String> cbnombre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -835,6 +1064,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -842,11 +1076,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbCliente;
     private javax.swing.JButton jbUsuario;
@@ -857,8 +1097,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog jdEliminarP;
     private javax.swing.JDialog jdMod;
     private javax.swing.JDialog jdUsuario;
+    private javax.swing.JList<String> jlCompra;
+    private javax.swing.JList<String> jlProducto;
     private javax.swing.JSpinner jsEdadC;
     private javax.swing.JTable jtcargar;
+    private javax.swing.JTextArea tafactura;
     private javax.swing.JTextField tfCategoria;
     private javax.swing.JTextField tfCategoria1;
     private javax.swing.JTextField tfDescuento;
@@ -870,6 +1113,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tfPrecio1;
     // End of variables declaration//GEN-END:variables
     Administrar ad = new Administrar("./ArchivoProductos.txt");
-    double ganancia=0;
-    ArrayList<Cliente> clientes= new ArrayList();
+    double ganancia = 0;
+    ArrayList<Cliente> clientes = new ArrayList();
 }
