@@ -976,8 +976,12 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         ad.cargarArchivo();
         DefaultTableModel m=new DefaultTableModel();
-        
-        
+        for (int i = 0; i < ad.getProductos().size(); i++) {
+            Producto p = ad.getProductos().get(i);
+            Object[]fila = {p.getNombre(),p.getCategoria(),p.getPrecio(),p.getDescuento()};
+            m.addRow(fila);
+        }
+        jtcargar.setModel(m);
        
     }//GEN-LAST:event_jButton9ActionPerformed
 
