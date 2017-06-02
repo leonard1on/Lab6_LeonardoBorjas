@@ -1,0 +1,1 @@
+Banana;Fruta;2.5;0.09;Carne;Res;25.25;0.25;
