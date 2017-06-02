@@ -976,9 +976,8 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         ad.cargarArchivo();
         DefaultTableModel m=new DefaultTableModel();
-        for (Cliente cliente : clientes) {
-            
-        }
+        
+        
        
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -998,6 +997,17 @@ public class Main extends javax.swing.JFrame {
                 ganancia += total;
                 com = com + "\n" + p.getNombre() + "--------" + total;
             }
+            for (int i = 0; i < modelo.getSize(); i++) {
+                Producto p = (Producto) modelo.get(i);
+                ad.productos.remove(p);
+                try {
+                    ad.escribirArchivo();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+            
             tafactura.setText(linea + com);
 
             Factura.setModal(true);
