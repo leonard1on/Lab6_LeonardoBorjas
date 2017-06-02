@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -62,7 +63,7 @@ public class Main extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtganancia = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jdCrearC = new javax.swing.JDialog();
@@ -348,6 +349,11 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setText("Ganancia:");
 
         jButton10.setText("Calcular Ganancia");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jdUsuario.setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout jdUsuarioLayout = new javax.swing.GroupLayout(jdUsuario.getContentPane());
@@ -365,7 +371,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(jdUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField1)))
+                                    .addComponent(jtganancia)))
                             .addGroup(jdUsuarioLayout.createSequentialGroup()
                                 .addGap(102, 102, 102)
                                 .addComponent(jLabel7)
@@ -388,7 +394,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addGap(4, 4, 4)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtganancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -969,7 +975,11 @@ public class Main extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         ad.cargarArchivo();
-
+        DefaultTableModel m=new DefaultTableModel();
+        for (Cliente cliente : clientes) {
+            
+        }
+       
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
@@ -977,15 +987,16 @@ public class Main extends javax.swing.JFrame {
         if (cbnombre.getSelectedItem().equals("")) {
 
         } else {
+            DefaultListModel modelo = (DefaultListModel) jlCompra.getModel();
             Cliente c = (Cliente) cbnombre.getSelectedItem();
             String linea = (c.getNombre() + "\n" + c.getEdad());
             String com = "";
-            for (int i = 0; i < jlCompra.getComponentCount(); i++) {
-                DefaultListModel modelo = (DefaultListModel) jlCompra.getModel();
+            for (int i = 0; i < modelo.getSize(); i++) {
+                
                 Producto p = (Producto) modelo.get(i);
                 double total = p.getPrecio() - (p.getPrecio() * p.getDescuento());
                 ganancia += total;
-                com = com + "\n" + p.getNombre() + "--------" + (p.getPrecio() - (p.getPrecio() * p.getDescuento()));
+                com = com + "\n" + p.getNombre() + "--------" + total;
             }
             tafactura.setText(linea + com);
 
@@ -995,6 +1006,11 @@ public class Main extends javax.swing.JFrame {
             Factura.setVisible(true);
         }
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        jtganancia.setText(""+ganancia);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1087,7 +1103,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbCliente;
     private javax.swing.JButton jbUsuario;
     private javax.swing.JDialog jdCliente;
@@ -1101,6 +1116,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> jlProducto;
     private javax.swing.JSpinner jsEdadC;
     private javax.swing.JTable jtcargar;
+    private javax.swing.JTextField jtganancia;
     private javax.swing.JTextArea tafactura;
     private javax.swing.JTextField tfCategoria;
     private javax.swing.JTextField tfCategoria1;
