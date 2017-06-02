@@ -6,6 +6,7 @@
 package lab6_leonardoborjas;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -54,13 +55,13 @@ public class Main extends javax.swing.JFrame {
         jdCrearC = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        tfNombre = new javax.swing.JTextField();
-        jsEdad = new javax.swing.JSpinner();
+        tfNombreC = new javax.swing.JTextField();
+        jsEdadC = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jdEliminarC = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
-        cbClientes = new javax.swing.JComboBox<>();
+        cbElimC = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jdCrearP = new javax.swing.JDialog();
         jLabel8 = new javax.swing.JLabel();
@@ -87,7 +88,7 @@ public class Main extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbMod = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -287,6 +288,11 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setText("Edad");
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel2.setText("Crear Cliente");
@@ -308,8 +314,8 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addGap(29, 29, 29)
                             .addGroup(jdCrearCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfNombre)
-                                .addComponent(jsEdad))))
+                                .addComponent(tfNombreC)
+                                .addComponent(jsEdadC))))
                     .addGroup(jdCrearCLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jButton1)))
@@ -323,11 +329,11 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jdCrearCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNombreC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jdCrearCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jsEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jsEdadC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -337,6 +343,11 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setText("Eliminar Cliente");
 
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jdEliminarCLayout = new javax.swing.GroupLayout(jdEliminarC.getContentPane());
         jdEliminarC.getContentPane().setLayout(jdEliminarCLayout);
@@ -344,7 +355,7 @@ public class Main extends javax.swing.JFrame {
             jdEliminarCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdEliminarCLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(cbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cbElimC, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jdEliminarCLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -358,7 +369,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbElimC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -440,6 +451,11 @@ public class Main extends javax.swing.JFrame {
         );
 
         jButton11.setText("Eliminar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel13.setText("Eliminar Producto");
@@ -478,15 +494,26 @@ public class Main extends javax.swing.JFrame {
         jLabel15.setText("Descuento (En decimales)");
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel16.setText("Crear Producto");
+        jLabel16.setText("Modificar Producto");
 
         jLabel17.setText("Nombre");
 
         jLabel18.setText("Categoria");
 
+        cbMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbModActionPerformed(evt);
+            }
+        });
+
         jLabel19.setText("Cliente");
 
         jButton12.setText("Modificar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jdModLayout = new javax.swing.GroupLayout(jdMod.getContentPane());
         jdMod.getContentPane().setLayout(jdModLayout);
@@ -496,33 +523,29 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jdModLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jdModLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfDescuento1, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                                .addComponent(tfDescuento1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jdModLayout.createSequentialGroup()
-                                .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel18)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel19))
                                 .addGap(18, 18, 18)
                                 .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfCategoria1)
-                                    .addComponent(tfPrecio1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                                    .addComponent(tfNombreP1)))
-                            .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jdModLayout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jdModLayout.createSequentialGroup()
-                                    .addGap(7, 7, 7)
-                                    .addComponent(jLabel16)))))
+                                    .addComponent(tfPrecio1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                                    .addComponent(tfNombreP1)
+                                    .addComponent(cbMod, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel16)))
                     .addGroup(jdModLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jButton12)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jdModLayout.setVerticalGroup(
             jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,9 +554,9 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(tfNombreP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -541,7 +564,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(tfCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jdModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(tfPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -617,6 +640,13 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        
+        cbElimC.setModel(new DefaultComboBoxModel());
+        DefaultComboBoxModel e =(DefaultComboBoxModel)cbElimC.getModel();
+        for (Cliente c : clientes) {
+            e.addElement(c);
+        }
+        
         jdEliminarC.setModal(true);
         jdEliminarC.pack();
         jdEliminarC.setLocationRelativeTo(this);
@@ -633,6 +663,15 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
+        cbMod.setModel(new DefaultComboBoxModel());
+
+        DefaultComboBoxModel e = (DefaultComboBoxModel) cbMod.getModel();
+        ad.cargarArchivo();
+        for (Producto p : ad.getProductos()) {
+            e.addElement(p);
+        }
+        
         jdMod.setModal(true);
         jdMod.pack();
         jdMod.setLocationRelativeTo(this);
@@ -683,6 +722,55 @@ public class Main extends javax.swing.JFrame {
         jdEliminarP.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        Producto p=(Producto)cbElimP.getSelectedItem();
+        ad.getProductos().remove(p);
+        
+        JOptionPane.showMessageDialog(this, "Producto Eliminado Exitosamente");
+        jdEliminarP.setVisible(false);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void cbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbModActionPerformed
+        // TODO add your handling code here:
+        Producto p=(Producto)cbMod.getSelectedItem();
+        
+        tfNombreP1.setText(p.getNombre());
+        tfCategoria1.setText(p.getCategoria());
+        tfPrecio1.setText(Double.toString(p.getPrecio()));
+        tfDescuento1.setText(Double.toString(p.getDescuento()));
+        
+    }//GEN-LAST:event_cbModActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        Producto p=(Producto)cbMod.getSelectedItem();
+        
+        p.setNombre(tfNombreP1.getText());
+        p.setCategoria(tfCategoria1.getText());
+        p.setPrecio(Double.parseDouble(tfPrecio1.getText()));
+        p.setDescuento(Double.parseDouble(tfDescuento1.getText()));
+        
+        jdMod.setVisible(false);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        clientes.add(new Cliente(tfNombreC.getText(),(Integer)jsEdadC.getValue()));
+        tfNombreC.setText("");
+        jsEdadC.setValue(20);
+        jdCrearC.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Cliente c=(Cliente)cbElimC.getSelectedItem();
+        clientes.remove(c);
+        
+        JOptionPane.showMessageDialog(this, "Cliente Eliminado Exitosamente");
+        jdEliminarC.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -719,8 +807,9 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbClientes;
+    private javax.swing.JComboBox<String> cbElimC;
     private javax.swing.JComboBox<String> cbElimP;
+    private javax.swing.JComboBox<String> cbMod;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -734,7 +823,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -769,17 +857,19 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog jdEliminarP;
     private javax.swing.JDialog jdMod;
     private javax.swing.JDialog jdUsuario;
-    private javax.swing.JSpinner jsEdad;
+    private javax.swing.JSpinner jsEdadC;
     private javax.swing.JTable jtcargar;
     private javax.swing.JTextField tfCategoria;
     private javax.swing.JTextField tfCategoria1;
     private javax.swing.JTextField tfDescuento;
     private javax.swing.JTextField tfDescuento1;
-    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfNombreC;
     private javax.swing.JTextField tfNombreP;
     private javax.swing.JTextField tfNombreP1;
     private javax.swing.JTextField tfPrecio;
     private javax.swing.JTextField tfPrecio1;
     // End of variables declaration//GEN-END:variables
     Administrar ad = new Administrar("./ArchivoProductos.txt");
+    double ganancia=0;
+    ArrayList<Cliente> clientes= new ArrayList();
 }
